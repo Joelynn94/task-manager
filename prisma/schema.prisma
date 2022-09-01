@@ -15,15 +15,7 @@ enum Role {
   USER
   DEVELOPER
   DESIGNER
-  PM
-}
-
-model Profile {
-  id     String  @id @default(uuid())
-  bio    String?
-  role   Role    @default(USER)
-  userId String? @unique @map(name: "user_id")
-  user   User?   @relation(fields: [userId], references: [id])
+  PROJECT_MANAGER
 }
 
 model User {
@@ -31,4 +23,45 @@ model User {
   email   String   @unique
   name    String?
   profile Profile?
+}
+
+model Profile {
+  id     String  @id @default(uuid())
+  image  String? @default("")
+  bio    String?
+  role   Role    @default(USER)
+  userId String? @unique @map(name: "user_id")
+  user   User?   @relation(fields: [userId], references: [id])
+}
+
+model Task {
+  id          String    @id @default(uuid())
+  title       String
+  description String?   @default("")
+  status      String    @default("Todo")
+  subTask     SubTask[]
+  column      Column[]
+}
+
+model SubTask {
+  id          String  @id @default(uuid())
+  title       String
+  isCompleted Boolean @default(false)
+  taskId      String  @map(name: "task_id")
+  task        Task    @relation(fields: [taskId], references: [id])
+}
+
+model Column {
+  id     String  @id @default(uuid())
+  name   String
+  taskId String  @map(name: "task_id")
+  task   Task    @relation(fields: [taskId], references: [id])
+  board  Board[]
+}
+
+model Board {
+  id       String @id @default(uuid())
+  name     String
+  columnId String @map(name: "column_id")
+  column   Column @relation(fields: [columnId], references: [id])
 }
