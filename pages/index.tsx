@@ -1,9 +1,73 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import React, { useState, useEffect } from "react";
+import type { NextPage, GetStaticProps, GetServerSideProps } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import prisma from "../lib/prisma";
+import styles from "../styles/Home.module.css";
 
-const Home: NextPage = () => {
+enum Role {
+  ADMIN = "ADMIN",
+  USER = "USER",
+  DEVELOPER = "DEVELOPER",
+  DESIGNER = "DESIGNER",
+  PROJECT_MANAGER = "PROJECT_MANAGER",
+}
+
+export type ProfileProps = {
+  id: string;
+  image: string;
+  bio: string;
+  role: Role;
+  userId: string;
+};
+
+export type UserProps = {
+  id: string;
+  email: string;
+  name: string;
+  profile: ProfileProps | null;
+};
+
+export type SubtaskProps = {
+  id: string;
+  title: string;
+  isCompleted: boolean;
+  taskId: string;
+};
+
+export type TaskProps = {
+  id: string;
+  title: string;
+  description: string;
+  status: string;
+  columnId: string;
+  subTasks: SubtaskProps[];
+};
+
+export type ColumnProps = {
+  id: string;
+  name: string;
+  tasks: TaskProps[];
+  boardId: string;
+};
+
+export type BoardProps = {
+  id: string;
+  name: string;
+  columns: ColumnProps[];
+};
+
+const Home = (users: UserProps[], boards: BoardProps[]) => {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    if (!loading) {
+      console.log(users);
+      console.log(boards);
+    }
+
+    setLoading(true);
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,44 +77,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <h1>Welcome to the kanban task manager</h1>
       </main>
 
       <footer className={styles.footer}>
@@ -59,14 +86,33 @@ const Home: NextPage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export const getServerSideProps: GetServerSideProps = async () => {
+  try {
+    const users = await prisma.user.findMany({
+      include: { profile: true },
+    });
+
+    const boards = await prisma.board.findMany({
+      include: { columns: true },
+    });
+
+    return {
+      props: { users, boards },
+    };
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+export default Home;
