@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+$ds-font-family: "Plus Jakarta Sans", sans-serif;
+$ds-base-font-size: 16px;
+
+// Data for each Type Style defined in the Style Sheet.
+$ds-font-size: (
+  heading1: 96px,
+  heading2: 60px,
+  heading3: 48px,
+  heading4: 34px,
+  heading5: 24px,
+  heading6: 20px,
+  subtitle1: 16px,
+  subtitle2: 14px,
+  body: $ds-base-font-size,
+  bodySmall: 12px,
+) !default;
+
+// Data for each Type Style defined in the Style Sheet.
+$ds-line-height: (
+  heading1: normal,
+  heading2: normal,
+  heading3: normal,
+  heading4: normal,
+  heading5: 30px,
+  heading6: 23px,
+  subtitle1: 19px,
+  subtitle2: 15px,
+  body: 23px,
+  bodySmall: 15px,
+) !default;
+
+// Data for each Type Style defined in the Style Sheet.
+$ds-letter-spacing: (
+  heading1: -1.5px,
+  heading2: -0.5px,
+  heading3: 0,
+  heading4: 0.25px,
+  heading5: 0,
+  heading6: 0.15px,
+  subtitle1: 0.15px,
+  subtitle2: 0.1px,
+  body: 0.7px,
+  bodySmall: 0.7px,
+) !default;
+
+// Data for each Type Style defined in the Style Sheet.
+$ds-font-weight: (
+  bold: 600,
+  semibold: 500,
+  regular: 400,
+  light: 300,
+) !default;

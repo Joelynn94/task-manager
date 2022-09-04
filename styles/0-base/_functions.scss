@@ -1,0 +1,71 @@
+/// Returns the font size for a given range.
+///
+/// @param {Number} $font-size - The font style.
+/// @return {Number} The font-size for the text-style.
+@function ds-font-size($font-size) {
+  $fetched-font-size: map-get($ds-font-size, $font-size);
+  @if type-of($fetched-font-size) != null {
+    @return $fetched-font-size;
+  } @else {
+    @error 'Font size range `#{$font-size}` not found. Available font sizes: #{$ds-font-size}';
+  }
+}
+
+/// Returns the line height for a given range.
+///
+/// @param {Number} $line-height - The font style.
+/// @return {Number} The line-height for the text-style.
+@function ds-line-height($line-height: normal) {
+  $fetched-line-height: map-get($ds-line-height, $line-height);
+  @if type-of($fetched-line-height) != null {
+    @return $fetched-line-height;
+  } @else {
+    @error 'Line height `#{$line-height}` not found. Available line heights: #{$ds-line-height}';
+  }
+}
+
+/// Returns the font weight for a given weight definition.
+///
+/// @param {String} $font-weight - The font weight.
+/// @return {Number} The font-weight for the text-weight.
+@function ds-font-weight($font-weight: normal) {
+  $fetched-font-weight: map-get($ds-font-weight, $font-weight);
+  @if type-of($fetched-font-weight) != null {
+    @return $fetched-font-weight;
+  } @else {
+    @error 'Font weight `#{$font-weight}` not found. Available font weights: #{$ds-font-weight}';
+  }
+}
+
+/// Returns the letter spacing for a given definition.
+///
+/// @param {String} $letter-spacing - The letter spacing.
+/// @return {Number} The letter-spacing.
+@function ds-letter-spacing($letter-spacing: 0) {
+  $fetched-letter-spacing: map-get($ds-letter-spacing, $letter-spacing);
+  @if type-of($fetched-letter-spacing) != null {
+    @return $fetched-letter-spacing;
+  } @else {
+    @error 'letter spacing `#{$letter-spacing}` not found. Available letter spacings: #{$ds-letter-spacing}';
+  }
+}
+
+/// Returns the color value for a given color name and group.
+///
+/// @param {String} $category - The color's category.
+/// @param {Number} $type - The darkness/lightness of the color. Defaults to base. The higher the number, the darker the color.
+/// @return {Color} The color value.
+
+@function ds-color($category, $type) {
+  $fetched-color: map-get(map-get($ds-color-data, $category), $type);
+
+  @if map-has-key($ds-color-data, $fetched-color) {
+    $fetched-color: map-get(map-get($ds-color-data, $fetched-color), $type);
+  }
+
+  @if type-of($fetched-color) == color {
+    @return $fetched-color;
+  } @else {
+    @error 'Color `#{$category} - #{$type}` not found. Available colors: #{$ds-color-data}';
+  }
+}

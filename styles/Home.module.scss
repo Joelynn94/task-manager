@@ -1,5 +1,13 @@
+@import "./0-base/typography";
+@import "./0-base/functions";
+@import "./0-base/mixins";
+
 .container {
   padding: 0 2rem;
+}
+
+.heading1 {
+  @include ds-text-style-heading1;
 }
 
 .main {

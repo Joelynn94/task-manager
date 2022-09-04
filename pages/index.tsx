@@ -3,7 +3,8 @@ import type { NextPage, GetStaticProps, GetServerSideProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import prisma from "../lib/prisma";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
+import buttonStyles from "../styles/Button.module.scss";
 
 enum Role {
   ADMIN = "ADMIN",
@@ -77,7 +78,11 @@ const Home = (users: UserProps[], boards: BoardProps[]) => {
       </Head>
 
       <main className={styles.main}>
-        <h1>Welcome to the kanban task manager</h1>
+        <h1 className={styles.heading1}>Welcome to the kanban task manager</h1>
+        <button className={buttonStyles.button}>Click me!</button>
+        <button className={buttonStyles.buttonPrimary}>Click me!</button>
+        <button className={buttonStyles.buttonSecondary}>Click me!</button>
+        <button className={buttonStyles.buttonDanger}>Click me!</button>
       </main>
 
       <footer className={styles.footer}>

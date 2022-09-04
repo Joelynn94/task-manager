@@ -1,0 +1,148 @@
+/// Returns desired styles for a given typography style.
+///
+/// @param {String} $weight - light, regular, semibold, bold.
+
+@mixin ds-text-style-heading1($weight: light) {
+  font-size: ds-font-size(heading1);
+  line-height: ds-line-height(heading1);
+  font-weight: ds-font-weight($weight);
+  font-family: $ds-font-family;
+  letter-spacing: ds-letter-spacing(heading1);
+  text-rendering: optimizeLegibility;
+}
+
+@mixin ds-text-style-heading2($weight: light) {
+  font-size: ds-font-size(heading2);
+  line-height: ds-line-height(heading2);
+  font-weight: ds-font-weight($weight);
+  font-family: $ds-font-family;
+  letter-spacing: ds-letter-spacing(heading2);
+  text-rendering: optimizeLegibility;
+}
+
+@mixin ds-text-style-heading3($weight: regular) {
+  font-size: ds-font-size(heading3);
+  line-height: ds-line-height(heading3);
+  font-weight: ds-font-weight($weight);
+  font-family: $ds-font-family;
+  letter-spacing: ds-letter-spacing(heading3);
+  text-rendering: optimizeLegibility;
+}
+
+@mixin ds-text-style-heading4($weight: regular) {
+  font-size: ds-font-size(heading4);
+  line-height: ds-line-height(heading4);
+  font-weight: ds-font-weight($weight);
+  font-family: $ds-font-family;
+  letter-spacing: ds-letter-spacing(heading4);
+  text-rendering: optimizeLegibility;
+}
+
+@mixin ds-text-style-heading5($weight: regular) {
+  font-size: ds-font-size(heading5);
+  line-height: ds-line-height(heading5);
+  font-weight: ds-font-weight($weight);
+  font-family: $ds-font-family;
+  letter-spacing: ds-letter-spacing(heading5);
+  text-rendering: optimizeLegibility;
+}
+
+@mixin ds-text-style-heading6($weight: semibold) {
+  font-size: ds-font-size(heading6);
+  line-height: ds-line-height(heading6);
+  font-weight: ds-font-weight($weight);
+  font-family: $ds-font-family;
+  letter-spacing: ds-letter-spacing(heading6);
+  text-rendering: optimizeLegibility;
+}
+
+@mixin ds-text-style-subtitle1($weight: regular) {
+  font-size: ds-font-size(subtitle1);
+  line-height: ds-line-height(subtitle1);
+  font-weight: ds-font-weight($weight);
+  font-family: $ds-font-family;
+  letter-spacing: ds-letter-spacing(subtitle1);
+  text-rendering: optimizeLegibility;
+}
+
+@mixin ds-text-style-subtitle2($weight: semibold) {
+  font-size: ds-font-size(subtitle2);
+  line-height: ds-line-height(subtitle2);
+  font-weight: ds-font-weight($weight);
+  font-family: $ds-font-family;
+  letter-spacing: ds-letter-spacing(subtitle2);
+  text-rendering: optimizeLegibility;
+}
+
+@mixin ds-text-style-body1($weight: regular) {
+  font-size: ds-font-size(body1);
+  line-height: ds-line-height(body1);
+  font-weight: ds-font-weight($weight);
+  font-family: $ds-font-family;
+  letter-spacing: ds-letter-spacing(body1);
+  text-rendering: optimizeLegibility;
+}
+
+@mixin ds-text-style-body2($weight: regular) {
+  font-size: ds-font-size(body2);
+  line-height: ds-line-height(body2);
+  font-weight: ds-font-weight($weight);
+  font-family: $ds-font-family;
+  letter-spacing: ds-letter-spacing(body2);
+  text-rendering: optimizeLegibility;
+}
+
+@mixin ds-text-style-caption($weight: regular) {
+  font-size: ds-font-size(caption);
+  line-height: ds-line-height(caption);
+  font-weight: ds-font-weight($weight);
+  font-family: $ds-font-family;
+  letter-spacing: ds-letter-spacing(caption);
+  text-rendering: optimizeLegibility;
+}
+
+@mixin ds-text-style-overline($weight: regular) {
+  font-size: ds-font-size(overline);
+  line-height: ds-line-height(overline);
+  font-weight: ds-font-weight($weight);
+  font-family: $ds-font-family;
+  letter-spacing: ds-letter-spacing(overline);
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+}
+
+@mixin ds-text-style-link($weight: regular) {
+  line-height: ds-line-height(link);
+  font-weight: ds-font-weight($weight);
+  font-family: $ds-font-family;
+  letter-spacing: ds-letter-spacing(link);
+  text-rendering: optimizeLegibility;
+
+  a {
+    text-decoration: underline;
+    text-rendering: optimizeLegibility;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin ds-button-base {
+  display: inline-block;
+  padding: $ds-space-08 $ds-space-16;
+  @include ds-text-style-subtitle1(bold);
+  color: $ds-black;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: $ds-space-24;
+  background-color: transparent;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
