@@ -78,11 +78,11 @@ const Home = (users: UserProps[], boards: BoardProps[]) => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.heading1}>Welcome to the kanban task manager</h1>
-        <button className={buttonStyles.button}>Click me!</button>
-        <button className={buttonStyles.buttonPrimary}>Click me!</button>
-        <button className={buttonStyles.buttonSecondary}>Click me!</button>
-        <button className={buttonStyles.buttonDanger}>Click me!</button>
+        <h1 className="text-heading5">Welcome to the kanban task manager</h1>
+        <button className="button">Click me!</button>
+        <button className="buttonPrimary">Click me!</button>
+        <button className="buttonSecondary">Click me!</button>
+        <button className="buttonDanger">Click me!</button>
       </main>
 
       <footer className={styles.footer}>

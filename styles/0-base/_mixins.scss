@@ -74,7 +74,7 @@
   text-rendering: optimizeLegibility;
 }
 
-@mixin ds-text-style-body1($weight: regular) {
+@mixin ds-text-style-body($weight: regular) {
   font-size: ds-font-size(body1);
   line-height: ds-line-height(body1);
   font-weight: ds-font-weight($weight);
@@ -83,31 +83,12 @@
   text-rendering: optimizeLegibility;
 }
 
-@mixin ds-text-style-body2($weight: regular) {
-  font-size: ds-font-size(body2);
-  line-height: ds-line-height(body2);
+@mixin ds-text-style-bodySmall($weight: regular) {
+  font-size: ds-font-size(bodySmall);
+  line-height: ds-line-height(bodySmall);
   font-weight: ds-font-weight($weight);
   font-family: $ds-font-family;
-  letter-spacing: ds-letter-spacing(body2);
-  text-rendering: optimizeLegibility;
-}
-
-@mixin ds-text-style-caption($weight: regular) {
-  font-size: ds-font-size(caption);
-  line-height: ds-line-height(caption);
-  font-weight: ds-font-weight($weight);
-  font-family: $ds-font-family;
-  letter-spacing: ds-letter-spacing(caption);
-  text-rendering: optimizeLegibility;
-}
-
-@mixin ds-text-style-overline($weight: regular) {
-  font-size: ds-font-size(overline);
-  line-height: ds-line-height(overline);
-  font-weight: ds-font-weight($weight);
-  font-family: $ds-font-family;
-  letter-spacing: ds-letter-spacing(overline);
-  text-transform: uppercase;
+  letter-spacing: ds-letter-spacing(bodySmall);
   text-rendering: optimizeLegibility;
 }
 

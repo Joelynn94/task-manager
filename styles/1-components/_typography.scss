@@ -1,3 +1,8 @@
+@import "./0-base/variables";
+@import "./0-base/spacing";
+@import "./0-base/functions";
+@import "./0-base/mixins";
+
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 $ds-font-family: "Plus Jakarta Sans", sans-serif;
 $ds-base-font-size: 16px;
@@ -14,6 +19,7 @@ $ds-font-size: (
   subtitle2: 14px,
   body: $ds-base-font-size,
   bodySmall: 12px,
+  link: $ds-base-font-size,
 ) !default;
 
 // Data for each Type Style defined in the Style Sheet.
@@ -28,6 +34,7 @@ $ds-line-height: (
   subtitle2: 15px,
   body: 23px,
   bodySmall: 15px,
+  link: $ds-base-font-size,
 ) !default;
 
 // Data for each Type Style defined in the Style Sheet.
@@ -42,6 +49,7 @@ $ds-letter-spacing: (
   subtitle2: 0.1px,
   body: 0.7px,
   bodySmall: 0.7px,
+  link: $ds-base-font-size,
 ) !default;
 
 // Data for each Type Style defined in the Style Sheet.
@@ -51,3 +59,47 @@ $ds-font-weight: (
   regular: 400,
   light: 300,
 ) !default;
+
+.text-heading1 {
+  @include ds-text-style-heading1;
+}
+
+.text-heading2 {
+  @include ds-text-style-heading2;
+}
+
+.text-heading3 {
+  @include ds-text-style-heading3;
+}
+
+.text-heading4 {
+  @include ds-text-style-heading4;
+}
+
+.text-heading5 {
+  @include ds-text-style-heading5;
+}
+
+.text-heading6 {
+  @include ds-text-style-heading6;
+}
+
+.text-subtitle1 {
+  @include ds-text-style-subtitle1;
+}
+
+.text-subtitle2 {
+  @include ds-text-style-subtitle2;
+}
+
+.text-body {
+  @include ds-text-style-body;
+}
+
+.text-body_small {
+  @include ds-text-style-bodySmall;
+}
+
+.text-link {
+  @include ds-text-style-link;
+}
