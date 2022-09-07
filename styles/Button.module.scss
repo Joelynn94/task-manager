@@ -23,7 +23,7 @@ $ds-button-danger-background-color--hover: ds-color(background, danger-hover);
   @include ds-button-base;
 }
 
-.buttonPrimary {
+.primary {
   @include ds-button-base;
   background-color: $ds-button-primary-background-color;
   border-color: $ds-button-primary-background-color;
@@ -35,7 +35,7 @@ $ds-button-danger-background-color--hover: ds-color(background, danger-hover);
   }
 }
 
-.buttonSecondary {
+.secondary {
   @include ds-button-base;
   background-color: $ds-button-secondary-background-color;
   border-color: $ds-button-secondary-background-color;
@@ -47,7 +47,7 @@ $ds-button-danger-background-color--hover: ds-color(background, danger-hover);
   }
 }
 
-.buttonDanger {
+.danger {
   @include ds-button-base;
   background-color: $ds-button-danger-background-color;
   border-color: $ds-button-danger-background-color;
