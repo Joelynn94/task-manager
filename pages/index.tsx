@@ -6,6 +6,7 @@ import prisma from "../lib/prisma";
 import styles from "../styles/Home.module.scss";
 import buttonStyles from "../styles/Button.module.scss";
 import checkboxStyles from "../styles/Checkbox.module.scss";
+import inputStyles from "../styles/Input.module.scss";
 
 enum Role {
   ADMIN = "ADMIN",
@@ -118,6 +119,35 @@ const Home = (users: UserProps[], boards: BoardProps[]) => {
           >
             Check box label
           </label>
+        </div>
+
+        <div>
+          <label
+            htmlFor="exampleFormControlInput1"
+            className={inputStyles.formInputLabel}
+          >
+            Email address
+          </label>
+          <input
+            id="exampleFormControlInput1"
+            type="email"
+            className={inputStyles.formInput}
+            placeholder="Enter task name"
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="exampleFormControlInput1"
+            className={inputStyles.formInputLabel}
+          >
+            Email address
+          </label>
+          <input
+            id="exampleFormControlInput1"
+            type="email"
+            className={inputStyles.formIsInvalid}
+            placeholder="Enter task name"
+          />
         </div>
       </main>
 

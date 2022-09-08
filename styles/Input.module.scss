@@ -1,0 +1,31 @@
+@import "./0-base/base.scss";
+
+.formInput {
+  @include ds-form-input;
+}
+
+.formInput:focus {
+  color: $ds-black;
+  background-color: $ds-white;
+  border-color: $ds-input-outline;
+  outline: 0;
+}
+
+.formInputLabel {
+  @include ds-text-style-bodySmall;
+  display: block;
+  margin-bottom: $ds-space-08;
+  color: $ds-med-grey;
+}
+
+.formIsInvalid {
+  @include ds-form-input;
+  border-color: $ds-red;
+}
+
+.formIsInvalid:focus,
+.formIsInvalid:focus-visible {
+  color: $ds-red;
+  border-color: $ds-red;
+  outline: 0;
+}

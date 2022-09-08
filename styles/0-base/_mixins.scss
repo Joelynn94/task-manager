@@ -90,11 +90,11 @@ $ds-button-danger-background-color--hover: ds-color(background, danger-hover);
 }
 
 @mixin ds-text-style-body($weight: regular) {
-  font-size: ds-font-size(body1);
-  line-height: ds-line-height(body1);
+  font-size: ds-font-size(body);
+  line-height: ds-line-height(body);
   font-weight: ds-font-weight($weight);
   font-family: $ds-font-family;
-  letter-spacing: ds-letter-spacing(body1);
+  letter-spacing: ds-letter-spacing(body);
   text-rendering: optimizeLegibility;
 }
 
@@ -103,7 +103,7 @@ $ds-button-danger-background-color--hover: ds-color(background, danger-hover);
   line-height: ds-line-height(bodySmall);
   font-weight: ds-font-weight($weight);
   font-family: $ds-font-family;
-  letter-spacing: ds-letter-spacing(bodySmall);
+  // letter-spacing: ds-letter-spacing(bodySmall);
   text-rendering: optimizeLegibility;
 }
 
@@ -240,4 +240,21 @@ $ds-button-danger-background-color--hover: ds-color(background, danger-hover);
     background-color: $ds-button-danger-background-color--hover;
     border-color: $ds-button-danger-background-color--hover;
   }
+}
+
+@mixin ds-form-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: $ds-space-08 $ds-space-16;
+  @include ds-text-style-bodySmall;
+  color: $ds-input-text-placeholder;
+  background-color: $ds-white;
+  background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  border: 1px solid $ds-input-outline;
+  border-radius: $ds-space-04;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }

@@ -10,38 +10,40 @@ $ds-primary-color: #635fc7;
 $ds-primary-color-hover: #a8a4ff;
 $ds-secondary-color: #efeff9;
 $ds-secondary-color-hover: #d8d7f1;
+$ds-input-outline: #e0e3e8;
+$ds-input-text-placeholder: #bfbfc4;
 $ds-red: #ea5555;
 $ds-red-hover: #ff9898;
 
 $ds-color-data: (
-	background: (
-		white: $ds-white,
-		dark: $ds-black,
-		primary: $ds-primary-color,
-		primary-hover: $ds-primary-color-hover,
-		secondary: $ds-secondary-color,
-		secondary-hover: $ds-secondary-color-hover,
-		danger: $ds-red,
-		danger-hover: $ds-red-hover,
-	),
-	text: (
-		white: $ds-white,
-		dark: $ds-black,
-		primary: $ds-primary-color,
-		primary-hover: $ds-primary-color-hover,
-		secondary: $ds-secondary-color,
-		secondary-hover: $ds-secondary-color-hover,
-		danger: $ds-red,
-		danger-hover: $ds-red-hover,
-	),
-	border: (
-		white: $ds-white,
-		dark: $ds-black,
-		primary: $ds-primary-color,
-		primary-hover: $ds-primary-color-hover,
-		secondary: $ds-secondary-color,
-		secondary-hover: $ds-secondary-color-hover,
-		danger: $ds-red,
-		danger-hover: $ds-red-hover,
-	),
+  background: (
+    white: $ds-white,
+    dark: $ds-black,
+    primary: $ds-primary-color,
+    primary-hover: $ds-primary-color-hover,
+    secondary: $ds-secondary-color,
+    secondary-hover: $ds-secondary-color-hover,
+    danger: $ds-red,
+    danger-hover: $ds-red-hover,
+  ),
+  text: (
+    white: $ds-white,
+    dark: $ds-black,
+    primary: $ds-primary-color,
+    primary-hover: $ds-primary-color-hover,
+    secondary: $ds-secondary-color,
+    secondary-hover: $ds-secondary-color-hover,
+    danger: $ds-red,
+    danger-hover: $ds-red-hover,
+  ),
+  border: (
+    white: $ds-white,
+    dark: $ds-black,
+    primary: $ds-primary-color,
+    primary-hover: $ds-primary-color-hover,
+    secondary: $ds-secondary-color,
+    secondary-hover: $ds-secondary-color-hover,
+    danger: $ds-red,
+    danger-hover: $ds-red-hover,
+  ),
 );
