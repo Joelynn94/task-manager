@@ -57,7 +57,6 @@
 /// @param {String} $category - The color's category.
 /// @param {Number} $type - The darkness/lightness of the color. Defaults to base. The higher the number, the darker the color.
 /// @return {Color} The color value.
-
 @function ds-color($category, $type) {
   $fetched-color: map-get(map-get($ds-color-data, $category), $type);
 
