@@ -2,78 +2,63 @@
 @import "./0-base/spacing";
 @import "./0-base/typography";
 
-.labelContainer {
-	background-color: $ds-light-grey;
-	padding: 12px;
-	border-radius: 4px;
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: $ds-light-grey;
+  padding: 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
-	&:hover {
-		background-color: #d8d7f1;
-	}
+  &:hover {
+    background-color: $ds-secondary-color-hover;
+  }
 }
 
-/* Customize the label (the container) */
-.container {
-	display: block;
-	position: relative;
-	cursor: pointer;
-	padding-left: 36px;
-	font-size: 18px;
-	font-weight: bold;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+.checkboxGroup .customCheckbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
 }
 
-/* Create a custom checkbox */
-.checkmark {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 20px;
-	width: 20px;
-	background-color: $ds-white;
-	border: 1px solid $ds-light-grey-lines;
-	border-radius: $ds-space-04;
-
-	/* Create the checkmark/indicator (hidden when not checked) */
-	&:after {
-		content: "";
-		position: absolute;
-		display: none;
-		left: 6px;
-		top: 1px;
-		width: 4px;
-		height: 10px;
-		border: solid white;
-		border-width: 0 3px 3px 0;
-		-webkit-transform: rotate(45deg);
-		-ms-transform: rotate(45deg);
-		transform: rotate(45deg);
-	}
+.customCheckbox ~ .customCheckboxSpan {
+  display: inline-block;
+  background-color: $ds-white;
+  border: 1px solid $ds-light-grey-lines;
+  border-radius: $ds-space-04;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  cursor: pointer;
 }
 
-/* Hide the browser's default checkbox */
-.checkboxInput {
-	position: absolute;
-	opacity: 0;
-	cursor: pointer;
-	height: 0;
-	width: 0;
+.customCheckbox:checked ~ .customCheckboxSpan {
+  background-color: $ds-primary-color;
+}
 
-	&:checked + label {
-		text-decoration: line-through;
-		opacity: 0.5;
-	}
+.customCheckbox:checked ~ .customCheckboxSpan:after {
+  content: "\2713";
+  color: $ds-white;
+  position: relative;
+  left: 4px;
+  top: 0px;
+  font-size: 13px;
+}
 
-	/* When the checkbox is checked, add a blue background */
-	&:checked ~ .checkmark {
-		background-color: $ds-primary-color;
+.customCheckboxLabel {
+  cursor: pointer;
+  padding-left: 12px;
+}
 
-		/* Show the checkmark when checked */
-		&:after {
-			display: block;
-		}
-	}
+.customCheckbox:checked ~ .customCheckboxLabel {
+  text-decoration: line-through;
+  opacity: 0.5;
 }
