@@ -1,60 +1,33 @@
-@import "./0-base/variables";
-@import "./0-base/spacing";
-@import "./0-base/functions";
-@import "./0-base/mixins";
-
-// Primary Button
-$ds-button-primary-background-color: ds-color(background, primary);
-$ds-button-primary-text-color: ds-color(text, white);
-$ds-button-primary-background-color--hover: ds-color(background, primary-hover);
-// Secondary Button
-$ds-button-secondary-background-color: ds-color(background, secondary);
-$ds-button-secondary-text-color: ds-color(text, primary);
-$ds-button-secondary-background-color--hover: ds-color(
-  background,
-  secondary-hover
-);
-// Danger Button
-$ds-button-danger-background-color: ds-color(background, danger);
-$ds-button-danger-text-color: ds-color(text, white);
-$ds-button-danger-background-color--hover: ds-color(background, danger-hover);
+@import "./0-base/base.scss";
 
 .button {
   @include ds-button-base;
 }
 
 .primary {
-  @include ds-button-base;
-  background-color: $ds-button-primary-background-color;
-  border-color: $ds-button-primary-background-color;
-  color: $ds-button-primary-text-color;
-
-  &:hover {
-    background-color: $ds-button-primary-background-color--hover;
-    border-color: $ds-button-primary-background-color--hover;
-  }
+  @include ds-button-primary;
 }
 
 .secondary {
-  @include ds-button-base;
-  background-color: $ds-button-secondary-background-color;
-  border-color: $ds-button-secondary-background-color;
-  color: $ds-button-secondary-text-color;
-
-  &:hover {
-    background-color: $ds-button-secondary-background-color--hover;
-    border-color: $ds-button-secondary-background-color--hover;
-  }
+  @include ds-button-secondary;
 }
 
 .danger {
-  @include ds-button-base;
-  background-color: $ds-button-danger-background-color;
-  border-color: $ds-button-danger-background-color;
-  color: $ds-button-danger-text-color;
+  @include ds-button-danger;
+}
 
-  &:hover {
-    background-color: $ds-button-danger-background-color--hover;
-    border-color: $ds-button-danger-background-color--hover;
-  }
+.buttonLg {
+  @include ds-button-lg-base;
+}
+
+.primaryLg {
+  @include ds-button-lg-primary;
+}
+
+.secondaryLg {
+  @include ds-button-lg-secondary;
+}
+
+.dangerLg {
+  @include ds-button-lg-danger;
 }

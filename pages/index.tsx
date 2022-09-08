@@ -80,10 +80,30 @@ const Home = (users: UserProps[], boards: BoardProps[]) => {
 
       <main className={styles.main}>
         <h1 className="text-heading5">Welcome to the kanban task manager</h1>
-        <button className={buttonStyles.button}>Click me!</button>
-        <button className={buttonStyles.primary}>Click me!</button>
-        <button className={buttonStyles.secondary}>Click me!</button>
-        <button className={buttonStyles.danger}>Click me!</button>
+        <button type="button" className={buttonStyles.button}>
+          Click me!
+        </button>
+        <button type="button" className={buttonStyles.primary}>
+          Click me!
+        </button>
+        <button type="button" className={buttonStyles.secondary}>
+          Click me!
+        </button>
+        <button type="button" className={buttonStyles.danger}>
+          Click me!
+        </button>
+        <button type="button" className={buttonStyles.buttonLg}>
+          Click me!
+        </button>
+        <button type="button" className={buttonStyles.primaryLg}>
+          Click me!
+        </button>
+        <button type="button" className={buttonStyles.secondaryLg}>
+          Click me!
+        </button>
+        <button type="button" className={buttonStyles.dangerLg}>
+          Click me!
+        </button>
 
         <div className={checkboxStyles.checkboxGroup}>
           <input
