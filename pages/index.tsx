@@ -7,6 +7,7 @@ import styles from "../styles/Home.module.scss";
 import buttonStyles from "../styles/Button.module.scss";
 import checkboxStyles from "../styles/Checkbox.module.scss";
 import inputStyles from "../styles/Input.module.scss";
+import dropdownStyles from "../styles/Dropdown.module.scss";
 
 enum Role {
   ADMIN = "ADMIN",
@@ -137,17 +138,54 @@ const Home = (users: UserProps[], boards: BoardProps[]) => {
         </div>
         <div>
           <label
-            htmlFor="exampleFormControlInput1"
+            htmlFor="exampleFormControlInput2"
             className={inputStyles.formInputLabel}
           >
             Email address
           </label>
           <input
-            id="exampleFormControlInput1"
+            id="exampleFormControlInput2"
             type="email"
             className={inputStyles.formIsInvalid}
             placeholder="Enter task name"
           />
+        </div>
+
+        <div className={dropdownStyles.dropdownContainer}>
+          <button
+            className={dropdownStyles.dropdownToggle}
+            type="button"
+            aria-expanded="false"
+          >
+            Todo
+          </button>
+        </div>
+
+        <div className={dropdownStyles.dropdownContainer}>
+          <button
+            className={`${dropdownStyles.dropdownToggle} ${dropdownStyles.active}`}
+            type="button"
+            aria-expanded="false"
+          >
+            Todo
+          </button>
+          <ul className={dropdownStyles.dropdownList}>
+            <li>
+              <a className={dropdownStyles.dropdownItem} href="#">
+                Action
+              </a>
+            </li>
+            <li>
+              <a className={dropdownStyles.dropdownItem} href="#">
+                Another action
+              </a>
+            </li>
+            <li>
+              <a className={dropdownStyles.dropdownItem} href="#">
+                Something else here
+              </a>
+            </li>
+          </ul>
         </div>
       </main>
 
