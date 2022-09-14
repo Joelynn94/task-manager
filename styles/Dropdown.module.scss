@@ -37,7 +37,7 @@
 .dropdownItem {
   display: block;
   width: 100%;
-  padding: $ds-space-08 0px;
+  padding: $ds-space-12 0px;
   font-weight: 400;
   color: $ds-med-grey;
   text-align: inherit;
@@ -45,6 +45,11 @@
   white-space: nowrap;
   background-color: transparent;
   border: 0;
+  @include ds-text-style-bodyBold;
+
+  &:hover {
+    color: $ds-black;
+  }
 }
 
 .active {

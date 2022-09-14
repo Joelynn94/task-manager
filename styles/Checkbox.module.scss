@@ -54,7 +54,7 @@
 .customCheckboxLabel {
   cursor: pointer;
   padding-left: 12px;
-  @include ds-text-style-checkbox;
+  @include ds-text-style-bodyBold;
 }
 
 .customCheckbox:checked ~ .customCheckboxLabel {
