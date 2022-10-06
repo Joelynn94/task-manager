@@ -1,0 +1,23 @@
+@import "./0-base/base.scss";
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $ds-space-12 $ds-space-32;
+  background-color: $ds-white;
+}
+
+.logo {
+  padding: 0 $ds-space-02;
+}
+
+.actions {
+  padding: $ds-space-02;
+}
+
+.actionsIcon {
+  margin-left: $ds-space-12;
+  display: inline-block;
+  vertical-align: middle;
+}

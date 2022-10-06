@@ -5,10 +5,7 @@ $ds-button-primary-background-color--hover: ds-color(background, primary-hover);
 // Secondary Button
 $ds-button-secondary-background-color: ds-color(background, secondary);
 $ds-button-secondary-text-color: ds-color(text, primary);
-$ds-button-secondary-background-color--hover: ds-color(
-  background,
-  secondary-hover
-);
+$ds-button-secondary-background-color--hover: ds-color(background, secondary-hover);
 // Danger Button
 $ds-button-danger-background-color: ds-color(background, danger);
 $ds-button-danger-text-color: ds-color(text, white);
@@ -147,27 +144,14 @@ $ds-button-danger-background-color--hover: ds-color(background, danger-hover);
   border: 1px solid transparent;
   border-radius: $ds-space-24;
   background-color: transparent;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 }
 
 @mixin ds-button-lg-base {
-  display: inline-block;
-  padding: $ds-space-12 $ds-space-16;
   @include ds-text-style-subtitle1(bold);
-  color: $ds-black;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  border-radius: $ds-space-24;
-  background-color: transparent;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  @include ds-button-base();
+  padding: $ds-space-12 $ds-space-16;
 }
 
 @mixin ds-button-primary {

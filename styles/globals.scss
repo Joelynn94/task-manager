@@ -1,2 +1,6 @@
 @import "./0-base/normalize";
 @import "./0-base/base.scss";
+
+body {
+  background-color: $ds-light-grey;
+}
