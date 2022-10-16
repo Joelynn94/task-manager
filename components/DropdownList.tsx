@@ -1,12 +1,20 @@
-import React from "react";
-import DropdownItem from "./DropdownItem";
+import React, { useRef } from "react";
 
-const DropdownList = () => {
-	return (
-		<ul id="menu2" role="menu" aria-labelledby="menubutton">
-			<DropdownItem />
-		</ul>
-	);
+const DropdownList = ({ direction = "horizontal", ...props }) => {
+  const menuRef = useRef<HTMLUListElement>(null);
+
+  const menuProps = {
+    ...props,
+    direction,
+    ref: menuRef,
+    role: "menu",
+  };
+
+  return (
+    <ul id="menu2" {...menuProps}>
+      {props.children}
+    </ul>
+  );
 };
 
 export default DropdownList;
