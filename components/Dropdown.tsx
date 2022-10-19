@@ -1,32 +1,54 @@
 import React, { useRef } from "react";
+import DropdownToggle from "./DropdownToggle";
 import DropdownItem from "./DropdownItem";
-import DropdownList from "./DropdownList";
+import DropdownMenu from "./DropdownMenu";
+
+/**************************************************************************
+ * TYPE DEFINITIONS
+ **************************************************************************/
+
+type DropdownType = {
+  show?: boolean;
+  children: React.ReactNode;
+};
+
+type ButtonPropsWeControl =
+  | "id"
+  | "type"
+  | "aria-haspopup"
+  | "aria-controls"
+  | "aria-expanded"
+  | "onKeyDown"
+  | "onClick";
+
+type MenuItemPropsWeControl =
+  | "id"
+  | "role"
+  | "tabIndex"
+  | "aria-disabled"
+  | "onPointerLeave"
+  | "onPointerMove"
+  | "onMouseLeave"
+  | "onMouseMove"
+  | "onFocus";
+
+type ItemsPropsWeControl =
+  | "id"
+  | "role"
+  | "tabIndex"
+  | "aria-activedescendant"
+  | "aria-labelledby"
+  | "onKeyDown";
 
 const Dropdown = ({ ...props }) => {
   return (
     <div className="menu-button-links">
-      <button
-        type="button"
-        id="menubutton"
-        aria-haspopup="true"
-        aria-controls="menu2"
-      >
-        WAI-ARIA Quick Links
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="down"
-          width="12"
-          height="9"
-          viewBox="0 0 12 9"
-        >
-          <polygon points="1 0, 11 0, 6 8"></polygon>
-        </svg>
-      </button>
-      <DropdownList>
+      <DropdownToggle />
+      <DropdownMenu>
         <DropdownItem />
         <DropdownItem />
         <DropdownItem />
-      </DropdownList>
+      </DropdownMenu>
     </div>
   );
 };
