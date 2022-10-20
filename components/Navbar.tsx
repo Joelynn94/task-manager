@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import navbarStyles from "../styles/Navbar.module.scss";
-import buttonStyles from "../styles/Button.module.scss";
+import React from 'react';
+import navbarStyles from '../styles/Navbar.module.scss';
+import buttonStyles from '../styles/Button.module.scss';
 
 const Navbar = () => {
   return (

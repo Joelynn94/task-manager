@@ -1,23 +1,10 @@
-@import "./0-base/normalize";
-@import "./0-base/base.scss";
+@import './0-base/normalize';
+@import './0-base/base.scss';
 
 body {
   background-color: $ds-light-grey;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-[role="menu"] {
-  margin: 0;
-  padding: 7px 4px;
-  list-style: none;
-  // display: none;
-  position: absolute;
-  border: 2px solid #034575;
-  border-radius: 5px;
-  background-color: #eee;
+.show {
+  display: block !important;
 }

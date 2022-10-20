@@ -1,4 +1,4 @@
-@import "./0-base/base.scss";
+@import './0-base/base.scss';
 
 .container {
   position: relative;
@@ -8,8 +8,8 @@
 .toggle {
   @include ds-form-input;
   padding: $ds-space-08 $ds-space-48 $ds-space-08 $ds-space-16;
-  background: url("../public/dropdown-arrow.svg") no-repeat right $ds-space-16
-    center / $ds-space-12;
+  background: url('../public/dropdown-arrow.svg') no-repeat right $ds-space-16 center /
+    $ds-space-12;
   text-align: left;
   color: $ds-black;
   cursor: pointer;
@@ -18,7 +18,7 @@
 .list {
   position: absolute;
   z-index: 1000;
-  // display: none;
+  display: none;
   min-width: 12rem;
   padding: $ds-space-08 $ds-space-16;
   margin: 0;
