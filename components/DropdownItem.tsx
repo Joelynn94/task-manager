@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import dropdownStyles from "../styles/Dropdown.module.scss";
 
 /**************************************************************************
  * TYPE DEFINITIONS
@@ -21,12 +22,23 @@ type DropdownMenuType = React.ComponentProps<"li"> & {
    * Highlight the menu item as active.
    */
   active?: boolean;
-  // "aria-disabled"?: boolean | "true" | "false";
+  "aria-disabled"?: boolean | "true" | "false";
+  /**
+   * Indicates that its element can be focused
+   */
+  tabIndex?: number;
+  /**
+   * HTML `href` attribute corresponding to `a.href`.
+   */
+  href?: string;
+  /**
+   * Text to use for the link.
+   */
+  itemText: string;
   onClick?: React.MouseEventHandler;
-  children?: React.ReactElement | ((props: ChildType) => React.ReactNode);
 };
 
-type ChildType = {
+type ChildType = React.ComponentProps<"a"> & {
   /**
    * Role for child element should be "menuitem"
    */
@@ -39,29 +51,53 @@ type ChildType = {
    * HTML `href` attribute corresponding to `a.href`.
    */
   href?: string;
+  /**
+   * Text to use for the link.
+   */
+  itemText: string;
 };
+
+/**************************************************************************
+ * UTILITIES
+ **************************************************************************/
+const isEmptyHref = (str: string | undefined) =>
+  typeof str === undefined || !str || str.length === 0;
 
 /**************************************************************************
  * COMPONENT
  **************************************************************************/
-
-const DropdownItem = ({ children, ...props }: DropdownMenuType) => {
+const DropdownItem = ({ itemText, href }: DropdownMenuType) => {
   const menuItemRef = useRef<HTMLLIElement>(null);
 
   const listItemProps = {
-    ...props,
     ref: menuItemRef,
-    role: "none",
+    role: isEmptyHref(href) ? "menuitem" : "none",
   };
 
   const childProps = {
     role: "menuitem",
     tabIndex: -1,
+    href: href,
   };
+
+  const menuItem = () => {
+    if (listItemProps.role === "menuitem") {
+      // tabindex should be set to -1
+    }
+    // else tabindex index should not be set
+  };
+
+  if (isEmptyHref(href)) {
+    return (
+      <li {...listItemProps} className={dropdownStyles.item}>
+        {itemText}
+      </li>
+    );
+  }
   return (
     <li {...listItemProps}>
-      <a href="https://www.w3.org/" {...childProps}>
-        W3C Home Page
+      <a {...childProps} className={dropdownStyles.item}>
+        {itemText}
       </a>
     </li>
   );

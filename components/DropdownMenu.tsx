@@ -1,4 +1,5 @@
 import React, { useRef, FocusEvent, AriaRole } from "react";
+import dropdownStyles from "../styles/Dropdown.module.scss";
 
 /**************************************************************************
  * TYPE DEFINITIONS
@@ -31,7 +32,7 @@ const DropdownMenu = (props: DropdownMenuType) => {
   };
 
   return (
-    <ul id="menu2" {...menuProps}>
+    <ul id="menu2" {...menuProps} className={dropdownStyles.list}>
       {props.children}
     </ul>
   );

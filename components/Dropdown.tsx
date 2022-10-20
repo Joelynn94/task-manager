@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import DropdownToggle from "./DropdownToggle";
 import DropdownItem from "./DropdownItem";
 import DropdownMenu from "./DropdownMenu";
+import dropdownStyles from "../styles/Dropdown.module.scss";
 
 /**************************************************************************
  * TYPE DEFINITIONS
@@ -42,12 +43,12 @@ type ItemsPropsWeControl =
 
 const Dropdown = ({ ...props }) => {
   return (
-    <div className="menu-button-links">
+    <div className={dropdownStyles.container}>
       <DropdownToggle />
       <DropdownMenu>
-        <DropdownItem />
-        <DropdownItem />
-        <DropdownItem />
+        <DropdownItem itemText="Testing" href="https://google.com" />
+        <DropdownItem itemText="Testing" />
+        <DropdownItem itemText="Testing" />
       </DropdownMenu>
     </div>
   );
