@@ -5,15 +5,11 @@ import dropdownStyles from '../styles/Dropdown.module.scss';
  * TYPE DEFINITIONS
  **************************************************************************/
 
-type DropdownToggleType = {
+type DropdownToggleType = React.ComponentProps<'button'> & {
   /**
    * Menu toggle unique identifier
    */
   id?: string;
-  /**
-   * Button type should be type "button"
-   */
-  type: string;
   /**
    * Indicates the button opens a menu.
    */
@@ -26,9 +22,9 @@ type DropdownToggleType = {
    * Added when the menu is open and removed when menu is closed.
    */
   'aria-expanded'?: boolean | 'true' | 'false';
-  show?: boolean;
+  show?: boolean | 'true' | 'false';
   ref?: React.MutableRefObject<HTMLButtonElement | null>;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 /**************************************************************************
@@ -36,17 +32,15 @@ type DropdownToggleType = {
  **************************************************************************/
 const DropdownButton = (props: DropdownToggleType) => {
   const dropdownButtonProps: DropdownToggleType = {
-    type: 'button',
     'aria-haspopup': 'true',
-    'aria-controls': '',
-    show: props.show,
-    onClick: props.onClick
+    'aria-expanded': props.show
   };
 
   return (
     <button
+      type="button"
       {...dropdownButtonProps}
-      aria-expanded={[props.show].toString()}
+      onClick={props.onClick}
       className={dropdownStyles.toggle}
     >
       Dropdown Toggle

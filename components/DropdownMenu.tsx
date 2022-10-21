@@ -42,7 +42,11 @@ const DropdownMenu = (props: DropdownMenuType) => {
   };
 
   return (
-    <ul id={menuProps.id} {...menuProps} className={`${dropdownStyles.list} show`}>
+    <ul
+      id={menuProps.id}
+      {...menuProps}
+      className={`${dropdownStyles.list} ${props.show ? 'show' : ''}`}
+    >
       {props.children}
     </ul>
   );

@@ -9,8 +9,9 @@ import dropdownStyles from '../styles/Dropdown.module.scss';
  **************************************************************************/
 
 type DropdownType = {
-  show?: boolean;
-  children: React.ReactNode;
+  show?: boolean | 'true' | 'false';
+  onClick?: () => () => void;
+  children?: React.ReactNode;
 };
 
 /**************************************************************************
@@ -30,7 +31,7 @@ const Dropdown = ({ ...props }) => {
 
   return (
     <div className={dropdownStyles.container}>
-      <DropdownToggle show={dropdownOpen} onClick={() => toggleDropdownMenu} />
+      <DropdownToggle show={dropdownOpen} onClick={toggleDropdownMenu} />
       <DropdownMenu id="menuTest" show={dropdownOpen}>
         <DropdownItem itemText="Testing" href="https://google.com" />
         <DropdownItem itemText="Testing" />
