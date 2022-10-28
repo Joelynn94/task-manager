@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import DropdownToggle from './DropdownToggle';
 import DropdownItem from './DropdownItem';
 import DropdownMenu from './DropdownMenu';
@@ -21,6 +21,7 @@ const Dropdown = ({ ...props }) => {
   const [menuItems, setMenuItems] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const menuRef = useRef<HTMLUListElement>(null);
 
   const firstIndex = () => setActiveIndex(0);
   const lastIndex = () => setActiveIndex(menuItems.length - 1);
@@ -29,10 +30,22 @@ const Dropdown = ({ ...props }) => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+    if (menuRef.current && !menuRef.current.contains(target)) {
+      setDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  });
+
   return (
     <div className={dropdownStyles.container}>
       <DropdownToggle show={dropdownOpen} onClick={toggleDropdownMenu} />
-      <DropdownMenu id="menuTest" show={dropdownOpen}>
+      <DropdownMenu id="menuTest" show={dropdownOpen} ref={menuRef}>
         <DropdownItem itemText="Testing" href="https://google.com" />
         <DropdownItem itemText="Testing" />
         <DropdownItem itemText="Testing" />

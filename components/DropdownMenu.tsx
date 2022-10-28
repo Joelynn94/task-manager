@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, forwardRef } from 'react';
 import dropdownStyles from '../styles/Dropdown.module.scss';
 
 /**************************************************************************
@@ -25,31 +25,30 @@ type DropdownMenuType = {
    */
   show?: boolean;
   children?: React.ReactNode;
-  ref?: React.MutableRefObject<HTMLUListElement | null>;
 };
 
 /**************************************************************************
  * COMPONENT
  **************************************************************************/
-const DropdownMenu = (props: DropdownMenuType) => {
-  const menuRef = useRef<HTMLUListElement>(null);
+const DropdownMenu = forwardRef(
+  (props: DropdownMenuType, ref: React.ForwardedRef<HTMLUListElement | null>) => {
+    const menuProps: DropdownMenuType = {
+      id: props.id,
+      role: 'menu',
+      'aria-labelledby': props['aria-labelledby']
+    };
 
-  const menuProps: DropdownMenuType = {
-    id: props.id,
-    role: 'menu',
-    'aria-labelledby': props['aria-labelledby'],
-    ref: menuRef
-  };
-
-  return (
-    <ul
-      id={menuProps.id}
-      {...menuProps}
-      className={`${dropdownStyles.list} ${props.show ? 'show' : ''}`}
-    >
-      {props.children}
-    </ul>
-  );
-};
+    return (
+      <ul
+        id={menuProps.id}
+        {...menuProps}
+        className={`${dropdownStyles.list} ${props.show ? 'show' : ''}`}
+        ref={ref}
+      >
+        {props.children}
+      </ul>
+    );
+  }
+);
 
 export default DropdownMenu;
