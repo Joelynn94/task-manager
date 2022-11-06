@@ -9,9 +9,11 @@ import dropdownStyles from '../styles/Dropdown.module.scss';
  **************************************************************************/
 
 type DropdownType = {
+  id?: string | number;
   show?: boolean | 'true' | 'false';
   onClick?: () => () => void;
   children?: React.ReactNode;
+  buttonText?: string;
 };
 
 /**************************************************************************
@@ -22,6 +24,7 @@ const Dropdown = ({ ...props }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const menuRef = useRef<HTMLUListElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const firstIndex = () => setActiveIndex(0);
   const lastIndex = () => setActiveIndex(menuItems.length - 1);
@@ -32,7 +35,11 @@ const Dropdown = ({ ...props }) => {
 
   const handleClickOutside = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
-    if (menuRef.current && !menuRef.current.contains(target)) {
+    if (
+      menuRef.current &&
+      !menuRef?.current?.contains(target) &&
+      !buttonRef?.current?.contains(target)
+    ) {
       setDropdownOpen(false);
     }
   };
@@ -44,7 +51,12 @@ const Dropdown = ({ ...props }) => {
 
   return (
     <div className={dropdownStyles.container}>
-      <DropdownToggle show={dropdownOpen} onClick={toggleDropdownMenu} />
+      <DropdownToggle
+        show={dropdownOpen}
+        onClick={toggleDropdownMenu}
+        buttonText={props.buttonText}
+        ref={buttonRef}
+      />
       <DropdownMenu id="menuTest" show={dropdownOpen} ref={menuRef}>
         <DropdownItem itemText="Testing" href="https://google.com" />
         <DropdownItem itemText="Testing" />

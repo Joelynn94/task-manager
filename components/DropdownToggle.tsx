@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import dropdownStyles from '../styles/Dropdown.module.scss';
 
 /**************************************************************************
@@ -25,27 +25,54 @@ type DropdownToggleType = React.ComponentProps<'button'> & {
   show?: boolean | 'true' | 'false';
   ref?: React.MutableRefObject<HTMLButtonElement | null>;
   onClick?: () => void;
+  buttonText?: string;
 };
 
 /**************************************************************************
  * COMPONENT
  **************************************************************************/
-const DropdownButton = (props: DropdownToggleType) => {
-  const dropdownButtonProps: DropdownToggleType = {
-    'aria-haspopup': 'true',
-    'aria-expanded': props.show
-  };
+const DropdownButton = forwardRef(
+  (props: DropdownToggleType, ref: React.ForwardedRef<HTMLButtonElement | null>) => {
+    const dropdownButtonProps: DropdownToggleType = {
+      'aria-haspopup': 'true',
+      'aria-expanded': props.show
+    };
 
-  return (
-    <button
-      type="button"
-      {...dropdownButtonProps}
-      onClick={props.onClick}
-      className={dropdownStyles.toggle}
-    >
-      Dropdown Toggle
-    </button>
-  );
-};
+    return (
+      <button
+        type="button"
+        {...dropdownButtonProps}
+        onClick={props.onClick}
+        className={dropdownStyles.toggle}
+        ref={ref}
+      >
+        {props.buttonText}
+      </button>
+    );
+  }
+);
 
 export default DropdownButton;
+
+// const DropdownMenu = forwardRef(
+//   (props: DropdownMenuType, ref: React.ForwardedRef<HTMLUListElement | null>) => {
+//     const menuProps: DropdownMenuType = {
+//       id: props.id,
+//       role: 'menu',
+//       'aria-labelledby': props['aria-labelledby']
+//     };
+
+//     return (
+//       <ul
+//         id={menuProps.id}
+//         {...menuProps}
+//         className={`${dropdownStyles.list} ${props.show ? 'show' : ''}`}
+//         ref={ref}
+//       >
+//         {props.children}
+//       </ul>
+//     );
+//   }
+// );
+
+// export default DropdownMenu;
