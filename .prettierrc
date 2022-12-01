@@ -1,13 +1,14 @@
 {
-  "singleQuote": true,
-  "printWidth": 90,
-  "editor.formatOnSave": true,
-  "proseWrap": "always",
+  "semi": true,
   "tabWidth": 2,
-  "requireConfig": false,
-  "useTabs": false,
+  "printWidth": 90,
+  "singleQuote": true,
   "trailingComma": "none",
   "bracketSpacing": true,
+  "bracketSameLine": false,
   "jsxBracketSameLine": false,
-  "semi": true
+  "arrowParens": "always",
+  "htmlWhitespaceSensitivity": "css",
+  "endOfLine": "lf",
+  "singleAttributePerLine": false
 }

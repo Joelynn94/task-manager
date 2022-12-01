@@ -63,7 +63,7 @@ const isEmptyHref = (str: string | undefined) =>
  * COMPONENT
  **************************************************************************/
 const DropdownItem = ({ id, itemText, href }: DropdownMenuItemType) => {
-  const menuItemRef = useRef<HTMLLIElement>(null);
+  const menuItemRef = useRef<HTMLLIElement | null>(null);
 
   const listItemProps = {
     ref: menuItemRef,

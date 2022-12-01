@@ -91,7 +91,7 @@ const Home = (users: UserProps[], boards: BoardProps[]) => {
 					<h1 className="text-heading5">
 						Welcome to the kanban task manager
 					</h1>
-					<Dropdown />
+					<Dropdown buttonText={'Platform Launch'} />
 					<button type="button" className={buttonStyles.button}>
 						Click me!
 					</button>

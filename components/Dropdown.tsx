@@ -23,8 +23,8 @@ const Dropdown = ({ ...props }) => {
   const [menuItems, setMenuItems] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const menuRef = useRef<HTMLUListElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLUListElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const firstIndex = () => setActiveIndex(0);
   const lastIndex = () => setActiveIndex(menuItems.length - 1);
