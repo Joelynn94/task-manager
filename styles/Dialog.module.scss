@@ -1,0 +1,49 @@
+.dialogWindow {
+  display: inline-block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  // Need to specify a max width
+  max-width: 500px;
+  background-color: white;
+  // Always maintains height of browser minus 200px
+  max-height: calc(100% - 200px);
+  // It's a column flexbox so that we can ensure the footer is locked at the bottom
+  display: flex;
+  flex-direction: column;
+}
+
+.dialogShadow {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  background-color: black;
+  opacity: 0.7;
+  z-index: 4;
+}
+
+.dialogHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $ds-space-16;
+  padding: $ds-space-16 $ds-space-32;
+}
+
+.dialogContent {
+  // allows scrolling inside the content
+  overflow: auto;
+  min-height: 200px;
+  padding: $ds-space-24;
+}
+
+.dialogFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $ds-space-16;
+  padding: $ds-space-16 $ds-space-24;
+}

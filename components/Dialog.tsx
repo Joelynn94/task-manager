@@ -1,32 +1,46 @@
 import React, { createContext, useLayoutEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import dialogStyles from '../styles/Dialog.module.scss';
+
+export function documentExists() {
+  return !!(
+    typeof window !== 'undefined' &&
+    window.document &&
+    window.document.createElement
+  );
+}
+
+let canUseDOM = typeof window !== 'undefined';
 
 interface IDialogContext {
   /**
    * Controls the visible state of the Dialog
    */
-  isOpen: boolean;
+  // isOpen: boolean;
   /**
    * React children
    */
   children: React.ReactNode;
-  /**
-   * The container ref to which the portal will be appended.
-   */
-  containerRef?: React.MutableRefObject<HTMLDivElement | null>;
 }
 
 const DialogContext = createContext<IDialogContext | null>(null);
 
-const Dialog = ({ isOpen = false, children, containerRef }: IDialogContext) => {
+const DialogContainer = ({ children }: IDialogContext) => {
   // create div element only once using ref
-  const portalNode = useRef<HTMLDivElement | null>(null);
-  if (!portalNode.current) portalNode.current = document.createElement('div');
+  const portalNodeRef = useRef<HTMLDivElement | null>(document.createElement('div'));
 
   useLayoutEffect(() => {
-    let ownerDocument = portalNode.current!.ownerDocument; // non-null assertion because it will never be null
+    let ownerDocument = portalNodeRef.current!.ownerDocument;
+    let body = ownerDocument.body;
+    console.log(body);
+    const portalEl = portalNodeRef.current!; // non-null assertion because it will never be null
+    body.appendChild(portalEl);
+
+    return () => {
+      body.removeChild(portalEl);
+    };
   }, []);
-  return createPortal(children, portalNode.current);
+  return createPortal(<div className="dialog">{children}</div>, portalNodeRef.current);
 };
 
-export default Dialog;
+export { DialogContainer };
