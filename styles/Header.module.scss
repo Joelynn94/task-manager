@@ -1,0 +1,55 @@
+@import './0-base/base.scss';
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $ds-space-12 $ds-space-32;
+  background-color: $ds-white;
+}
+
+.boardLaunchModal {
+  display: flex;
+  align-items: center;
+  padding: 0 $ds-space-02;
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.boardLaunchModalButton {
+  @include ds-button-base;
+}
+
+.boardLaunchModalText {
+  margin-right: $ds-space-08;
+}
+
+.boardName {
+  @include ds-text-style-heading6;
+  display: none;
+  @media (min-width: 768px) {
+    display: inline-block;
+    margin-left: $ds-space-16;
+    margin-right: $ds-space-08;
+  }
+}
+
+.boardActions {
+  display: flex;
+  align-items: center;
+  padding: $ds-space-02;
+}
+
+.boardActionsButton {
+  @include ds-button-base;
+  display: flex;
+}
+
+.boardActionsText {
+  display: none;
+  @media (min-width: 768px) {
+    display: inline-block;
+    margin-left: $ds-space-04;
+  }
+}

@@ -144,13 +144,13 @@ $ds-button-danger-background-color--hover: ds-color(background, danger-hover);
   border: 1px solid transparent;
   border-radius: $ds-space-24;
   background-color: transparent;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
-    box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 @mixin ds-button-lg-base {
   @include ds-text-style-subtitle1(bold);
-  @include ds-button-base();
+  @include ds-button-base;
   padding: $ds-space-12 $ds-space-16;
 }
 
