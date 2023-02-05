@@ -1,4 +1,4 @@
-@import "./0-base/base.scss";
+@import './0-base/base.scss';
 
 .formInput {
   @include ds-form-input;
@@ -15,7 +15,7 @@
   @include ds-text-style-bodySmall;
   display: block;
   margin-bottom: $ds-space-08;
-  color: $ds-med-grey;
+  color: $ds-med-gray;
 }
 
 .formIsInvalid {

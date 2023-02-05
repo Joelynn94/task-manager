@@ -1,11 +1,11 @@
 $ds-black: #000112;
 $ds-white: #ffffff;
 $ds-dark-bg: #20212c;
-$ds-dark-grey: #2b2c37;
-$ds-dark-grey-lines: #3e3f4e;
-$ds-med-grey: #828fa3;
-$ds-light-grey: #f4f7fd;
-$ds-light-grey-lines: #e4ebfa;
+$ds-dark-gray: #2b2c37;
+$ds-dark-gray-lines: #3e3f4e;
+$ds-med-gray: #828fa3;
+$ds-light-gray: #f4f7fd;
+$ds-light-gray-lines: #e4ebfa;
 $ds-primary-color: #635fc7;
 $ds-primary-color-hover: #a8a4ff;
 $ds-secondary-color: #efeff9;
@@ -24,7 +24,7 @@ $ds-color-data: (
     secondary: $ds-secondary-color,
     secondary-hover: $ds-secondary-color-hover,
     danger: $ds-red,
-    danger-hover: $ds-red-hover,
+    danger-hover: $ds-red-hover
   ),
   text: (
     white: $ds-white,
@@ -34,7 +34,7 @@ $ds-color-data: (
     secondary: $ds-secondary-color,
     secondary-hover: $ds-secondary-color-hover,
     danger: $ds-red,
-    danger-hover: $ds-red-hover,
+    danger-hover: $ds-red-hover
   ),
   border: (
     white: $ds-white,
@@ -44,6 +44,6 @@ $ds-color-data: (
     secondary: $ds-secondary-color,
     secondary-hover: $ds-secondary-color-hover,
     danger: $ds-red,
-    danger-hover: $ds-red-hover,
-  ),
+    danger-hover: $ds-red-hover
+  )
 );

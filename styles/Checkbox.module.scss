@@ -1,10 +1,10 @@
-@import "./0-base/base.scss";
+@import './0-base/base.scss';
 
 .checkboxGroup {
   display: flex;
   align-items: center;
   position: relative;
-  background-color: $ds-light-grey;
+  background-color: $ds-light-gray;
   padding: 12px;
   border-radius: 4px;
   font-weight: bold;
@@ -30,7 +30,7 @@
 .customCheckbox ~ .customCheckboxSpan {
   display: inline-block;
   background-color: $ds-white;
-  border: 1px solid $ds-light-grey-lines;
+  border: 1px solid $ds-light-gray-lines;
   border-radius: $ds-space-04;
   width: 20px;
   height: 20px;
@@ -43,7 +43,7 @@
 }
 
 .customCheckbox:checked ~ .customCheckboxSpan:after {
-  content: "\2713";
+  content: '\2713';
   color: $ds-white;
   position: relative;
   left: 4px;
