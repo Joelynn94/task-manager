@@ -1,33 +1,16 @@
 @import './0-base/base.scss';
 
 .container {
-  padding: 0 $ds-space-32;
+  padding: 0 $ds-space-16;
 }
 
 .main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
+  padding: $ds-space-24 $ds-space-16;
+  justify-content: center;
+  align-items: center;
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
 }
 
 .title a {
