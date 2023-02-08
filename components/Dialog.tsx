@@ -62,12 +62,10 @@ const DialogContainer = ({ isOpen, onClose, children }: IDialogContext) => {
       document.body.appendChild(newContainer);
       portalNodeRef.current = document.createElement('div');
       portalNodeRef.current.setAttribute('id', 'dialog-portal');
-      portalNodeRef.current.setAttribute('class', dialogStyles.dialog);
       newContainer.appendChild(portalNodeRef.current);
     } else {
       portalNodeRef.current = document.createElement('div');
       portalNodeRef.current.setAttribute('id', 'dialog-portal');
-      portalNodeRef.current.setAttribute('class', dialogStyles.dialog);
       container.appendChild(portalNodeRef.current);
     }
     // Create a div element to render the Dialog into
