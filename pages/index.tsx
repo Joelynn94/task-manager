@@ -6,7 +6,7 @@ import prisma from '../lib/prisma';
 import mainStyles from '../styles/Home.module.scss';
 import buttonStyles from '../styles/Button.module.scss';
 import Header from '../components/Header';
-import { DialogContainer } from '../components/Dialog';
+import DialogContainer from '../components/Dialog';
 
 enum Role {
   ADMIN = 'ADMIN',
@@ -62,6 +62,8 @@ export type BoardProps = {
 
 const Home = (users: UserProps[], boards: BoardProps[]) => {
   const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
     if (!loading) {
       console.log(users);
@@ -95,7 +97,12 @@ const Home = (users: UserProps[], boards: BoardProps[]) => {
         </button>
         {/* <Dropdown buttonText={'Platform Launch'} /> */}
 
-        <DialogContainer isOpen={true} />
+        <button role="button" type="button" onClick={() => setOpen(true)}>
+          Open Modal
+        </button>
+        <DialogContainer isOpen={open} onClose={() => setOpen(false)}>
+          Fancy Dialog
+        </DialogContainer>
       </main>
     </div>
   );
