@@ -48,7 +48,6 @@ const OVERLAY_STYLES = {
 };
 
 const DialogContainer = ({ isOpen, onClose, children }: IDialogContext) => {
-  if (!isOpen) return null;
   const [canUseDom, setCanUseDom] = React.useState(false);
   // create div element only once using ref
   const portalNodeRef = useRef<HTMLDivElement | null>(null);
@@ -80,7 +79,7 @@ const DialogContainer = ({ isOpen, onClose, children }: IDialogContext) => {
     };
   }, []);
 
-  return canUseDom
+  return canUseDom && isOpen
     ? createPortal(
         <>
           <div style={OVERLAY_STYLES}></div>
