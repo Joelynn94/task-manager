@@ -1,6 +1,10 @@
-@import "./0-base/base.scss";
+@import './0-base/base.scss';
 
 .button {
+  @include ds-button-base;
+}
+
+.default {
   @include ds-button-base;
 }
 
@@ -30,4 +34,23 @@
 
 .dangerLg {
   @include ds-button-lg-danger;
+}
+
+.buttonSpecial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: $ds-space-00 $ds-space-24 $ds-space-24 $ds-space-00;
+  margin-left: $ds-negative-space-16;
+  padding-right: $ds-space-48;
+}
+
+.board-actions {
+  @include ds-button-base;
+  display: flex;
+}
+
+.active {
+  @include ds-button-primary;
 }

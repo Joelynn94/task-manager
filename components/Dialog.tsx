@@ -27,26 +27,6 @@ interface IDialogContext {
 
 const DialogContext = createContext<IDialogContext | null>(null);
 
-const DIALOG_STYLES = {
-  position: 'fixed',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  backgroundColor: '#fff',
-  padding: '50px',
-  zIndex: 1000
-};
-
-const OVERLAY_STYLES = {
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: 'rgba(0,0,0,.7)',
-  zIndex: 1000
-};
-
 const DialogContainer = ({ isOpen, onClose, children }: IDialogContext) => {
   const [canUseDom, setCanUseDom] = React.useState(false);
   // create div element only once using ref
@@ -63,12 +43,10 @@ const DialogContainer = ({ isOpen, onClose, children }: IDialogContext) => {
       portalNodeRef.current = document.createElement('div');
       portalNodeRef.current.setAttribute('id', 'dialog-portal');
       newContainer.appendChild(portalNodeRef.current);
-    } else {
-      portalNodeRef.current = document.createElement('div');
-      portalNodeRef.current.setAttribute('id', 'dialog-portal');
-      container.appendChild(portalNodeRef.current);
     }
-    // Create a div element to render the Dialog into
+    portalNodeRef.current = document.createElement('div');
+    portalNodeRef.current.setAttribute('id', 'dialog-portal');
+    // Append the element to the DOM on mount
     container?.appendChild(portalNodeRef.current!);
 
     // Remove the element from the DOM when we unmount
@@ -80,8 +58,8 @@ const DialogContainer = ({ isOpen, onClose, children }: IDialogContext) => {
   return canUseDom && isOpen
     ? createPortal(
         <>
-          <div style={OVERLAY_STYLES}></div>
-          <div style={DIALOG_STYLES}>
+          <div className={dialogStyles.dialogOverlay}></div>
+          <div className={dialogStyles.dialogWindow}>
             <button type="button" onClick={onClose}>
               Close dialog
             </button>

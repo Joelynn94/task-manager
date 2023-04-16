@@ -4,6 +4,7 @@
 body {
   background-color: $ds-light-gray;
   height: 100%;
+  @include ds-text-style-body;
 }
 
 .wrapper {
@@ -14,4 +15,32 @@ body {
 
 .show {
   display: block !important;
+}
+
+h1 {
+  @include ds-text-style-heading1;
+}
+
+h2 {
+  @include ds-text-style-heading2;
+}
+
+h3 {
+  @include ds-text-style-heading3;
+}
+
+h4 {
+  @include ds-text-style-heading4;
+}
+
+h5 {
+  @include ds-text-style-heading5;
+}
+
+h6 {
+  @include ds-text-style-heading6;
+}
+
+a {
+  @include ds-text-style-link;
 }

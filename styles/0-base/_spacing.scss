@@ -1,3 +1,4 @@
+$ds-space-00: 0px; // 0px
 $ds-space-01: 1px; // 1px
 $ds-space-02: 2px; // 2px
 $ds-space-04: 4px; // 4px
@@ -32,7 +33,7 @@ $ds-spacing-data: (
   space-80: $ds-space-80,
   space-96: $ds-space-96,
   space-128: $ds-space-128,
-  space-160: $ds-space-160,
+  space-160: $ds-space-160
 ) !default;
 
 $ds-negative-space-01: -1px; // -1px
@@ -69,5 +70,5 @@ $ds-negative-spacing-data: (
   space-80: $ds-negative-space-80,
   space-96: $ds-negative-space-96,
   space-128: $ds-negative-space-128,
-  space-160: $ds-negative-space-160,
+  space-160: $ds-negative-space-160
 ) !default;

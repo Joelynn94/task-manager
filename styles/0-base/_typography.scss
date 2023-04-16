@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-$ds-font-family: "Plus Jakarta Sans", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+$ds-font-family: 'Plus Jakarta Sans', sans-serif;
 $ds-base-font-size: 16px;
 
 // Data for each Type Style defined in the Style Sheet.
@@ -14,7 +14,7 @@ $ds-font-size: (
   subtitle2: 14px,
   body: $ds-base-font-size,
   bodySmall: 14px,
-  link: $ds-base-font-size,
+  link: $ds-base-font-size
 ) !default;
 
 // Data for each Type Style defined in the Style Sheet.
@@ -29,7 +29,7 @@ $ds-line-height: (
   subtitle2: 15px,
   body: 23px,
   bodySmall: 14px,
-  link: $ds-base-font-size,
+  link: $ds-base-font-size
 ) !default;
 
 // Data for each Type Style defined in the Style Sheet.
@@ -44,7 +44,7 @@ $ds-letter-spacing: (
   subtitle2: 0.1px,
   body: 0.7px,
   bodySmall: 0.7px,
-  link: $ds-base-font-size,
+  link: $ds-base-font-size
 ) !default;
 
 // Data for each Type Style defined in the Style Sheet.
@@ -52,7 +52,7 @@ $ds-font-weight: (
   bold: 700,
   semibold: 600,
   regular: 500,
-  light: 400,
+  light: 400
 ) !default;
 
 .text-heading1 {
@@ -89,6 +89,10 @@ $ds-font-weight: (
 
 .text-body {
   @include ds-text-style-body;
+}
+
+.text-body_bold {
+  @include ds-text-style-bodyBold;
 }
 
 .text-body_small {

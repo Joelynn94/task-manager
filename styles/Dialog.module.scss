@@ -15,9 +15,12 @@
   // It's a column flexbox so that we can ensure the footer is locked at the bottom
   display: flex;
   flex-direction: column;
+  padding: $ds-space-16;
+  z-index: 1000;
+  border-radius: $ds-space-08;
 }
 
-.dialogShadow {
+.dialogOverlay {
   position: fixed;
   height: 100%;
   width: 100%;

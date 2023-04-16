@@ -95,14 +95,6 @@ const Home = (users: UserProps[], boards: BoardProps[]) => {
           <Image src="/icon-add-task-mobile.svg" width={12} height={12} />
           <span style={{ marginLeft: '4px' }}>Add New Column</span>
         </button>
-        {/* <Dropdown buttonText={'Platform Launch'} /> */}
-
-        <button role="button" type="button" onClick={() => setOpen(true)}>
-          Open Modal
-        </button>
-        <DialogContainer isOpen={open} onClose={() => setOpen(false)}>
-          Fancy Dialog
-        </DialogContainer>
       </main>
     </div>
   );
