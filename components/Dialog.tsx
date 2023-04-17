@@ -1,20 +1,15 @@
-import React, { createContext, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import dialogStyles from '../styles/Dialog.module.scss';
+import DialogContent from './DialogContent';
+import DialogOverlay from './DialogOverlay';
 
-export function documentExists() {
-  return !!(
-    typeof window !== 'undefined' &&
-    window.document &&
-    window.document.createElement
-  );
-}
+import Button from './Button';
 
-interface IDialogContext {
+type DialogProps = {
   /**
-   * Controls the visible state of the Dialog
+   * Controls the visile state of the Dialog
    */
-  isOpen: boolean;
+  showModal: boolean;
   /**
    * React children
    */
@@ -22,53 +17,36 @@ interface IDialogContext {
   /**
    * Closes the Dialog
    */
-  onClose: () => void;
-}
+  onDismiss: (event?: React.MouseEvent | React.KeyboardEvent) => void;
+};
 
-const DialogContext = createContext<IDialogContext | null>(null);
-
-const DialogContainer = ({ isOpen, onClose, children }: IDialogContext) => {
-  const [canUseDom, setCanUseDom] = React.useState(false);
+const Dialog = ({ showModal, children, onDismiss }: DialogProps) => {
   // create div element only once using ref
-  const portalNodeRef = useRef<HTMLDivElement | null>(null);
+  const portalRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    setCanUseDom(typeof window !== 'undefined');
+    const dialogRoot = document.querySelector('#dialog-root') as HTMLDivElement;
+    if (!portalRef.current) portalRef.current = document.createElement('div');
 
-    const container = document.getElementById('dialog-root') as HTMLElement;
-    if (!container) {
-      const newContainer = document.createElement('div');
-      newContainer.setAttribute('id', 'dialog-root');
-      document.body.appendChild(newContainer);
-      portalNodeRef.current = document.createElement('div');
-      portalNodeRef.current.setAttribute('id', 'dialog-portal');
-      newContainer.appendChild(portalNodeRef.current);
-    }
-    portalNodeRef.current = document.createElement('div');
-    portalNodeRef.current.setAttribute('id', 'dialog-portal');
-    // Append the element to the DOM on mount
-    container?.appendChild(portalNodeRef.current!);
-
-    // Remove the element from the DOM when we unmount
+    const el = portalRef.current!; // non-null assertion because it will never be null
+    dialogRoot.appendChild(el);
     return () => {
-      container?.removeChild(portalNodeRef.current!);
+      dialogRoot.removeChild(el!);
     };
   }, []);
 
-  return canUseDom && isOpen
-    ? createPortal(
-        <>
-          <div className={dialogStyles.dialogOverlay}></div>
-          <div className={dialogStyles.dialogWindow}>
-            <button type="button" onClick={onClose}>
-              Close dialog
-            </button>
-            {children}
-          </div>
-        </>,
-        document.getElementById('dialog-root') as HTMLElement
-      )
-    : null;
+  return (
+    <>
+      {showModal &&
+        createPortal(
+          <>
+            <DialogOverlay isOpen={showModal} onDismiss={onDismiss} />
+            <DialogContent onClose={onDismiss}>{children}</DialogContent>
+          </>,
+          portalRef.current!
+        )}
+    </>
+  );
 };
 
-export default DialogContainer;
+export default Dialog;

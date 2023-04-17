@@ -62,7 +62,15 @@ export type BoardProps = {
 
 const Home = (users: UserProps[], boards: BoardProps[]) => {
   const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
+
+  const open = () => {
+    setShowDialog(true);
+  };
+
+  const close = () => {
+    setShowDialog(false);
+  };
 
   useEffect(() => {
     if (!loading) {
@@ -96,6 +104,8 @@ const Home = (users: UserProps[], boards: BoardProps[]) => {
           <span style={{ marginLeft: '4px' }}>Add New Column</span>
         </button>
       </main>
+
+      <div id="dialog-root"></div>
     </div>
   );
 };
