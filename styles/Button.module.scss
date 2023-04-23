@@ -38,12 +38,19 @@
 
 .buttonSpecial {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 12px;
   border-radius: $ds-space-00 $ds-space-24 $ds-space-24 $ds-space-00;
   margin-left: $ds-negative-space-16;
   padding-right: $ds-space-48;
+  color: $ds-med-gray;
+  width: 100%;
+
+  &:hover {
+    color: ds-color(text, primary);
+    background-color: $ds-primary-color-rgba;
+  }
 }
 
 .board-actions {
@@ -52,5 +59,6 @@
 }
 
 .active {
-  @include ds-button-primary;
+  color: ds-color(text, white);
+  background-color: ds-color(background, primary);
 }

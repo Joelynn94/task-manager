@@ -32,20 +32,26 @@ const Header = () => {
         </Button>
         <Dialog showModal={showDialog} onDismiss={close}>
           <h3 className="text-subtitle2 text-gray">All Boards (3)</h3>
-          <div>
-            <Button buttonStyle="buttonSpecial">
-              <Image src="/icon-board.svg" width={16} height={16} />
-              Platform Launch
-            </Button>
-            <Button>
-              <Image src="/icon-board.svg" width={16} height={16} />
-              Marketing Plan
-            </Button>
-            <Button>
-              <Image src="/icon-board.svg" width={16} height={16} />
-              Roadmap
-            </Button>
-          </div>
+          <ul>
+            <li>
+              <Button buttonStyle="buttonSpecial" isActive={true}>
+                <Image src="/icon-board.svg" width={16} height={16} />
+                Platform Launch
+              </Button>
+            </li>
+            <li>
+              <Button buttonStyle="buttonSpecial">
+                <Image src="/icon-board.svg" width={16} height={16} />
+                Marketing Plan
+              </Button>
+            </li>
+            <li>
+              <Button buttonStyle="buttonSpecial">
+                <Image src="/icon-board.svg" width={16} height={16} />
+                Roadmap
+              </Button>
+            </li>
+          </ul>
         </Dialog>
         <Button aria-label={'Edit or delete a board'} buttonStyle={'board-actions'}>
           <Image src="/icon-vertical-ellipsis.svg" width={5} height={20} />

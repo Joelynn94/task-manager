@@ -1,6 +1,5 @@
 import React from 'react';
 import dialogStyles from '../styles/Dialog.module.scss';
-import DialogOverlay from './DialogOverlay';
 
 type DialogContentProps = {
   /**

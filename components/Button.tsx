@@ -8,7 +8,6 @@ type Props = {
   type?: 'button' | 'submit' | 'reset' | undefined;
   /**
    * The aria-label of the button
-   * @default undefined
    * @example 'Add New Task'
    * @example 'Edit or delete a board'
    * @example 'Add a new board'
@@ -24,17 +23,27 @@ type Props = {
    */
   children?: React.ReactNode;
   /**
+   * The active state of the button (true or false)
+   */
+  isActive?: boolean;
+  /**
    * The onClick handler of the button
    */
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Button = (props: Props) => {
-  console.log(props.buttonStyle);
+  const buttonClassNames = [
+    buttonStyles.button,
+    buttonStyles[props.buttonStyle ?? 'primary']
+  ];
+  if (props.isActive) {
+    buttonClassNames.push(buttonStyles.active);
+  }
   return (
     <button
       type={props.type}
-      className={`${buttonStyles.button} ${buttonStyles[props.buttonStyle ?? 'primary']}`}
+      className={buttonClassNames.join(' ')}
       onClick={props.onClick}
       aria-label={props.ariaLabel}
     >
